@@ -1,7 +1,7 @@
 # Prop Logic Symbol Swapper
 Swaps ASCII propositional logic symbols for the utf8 symbols
 
-##Accepted syntax:
+## Accepted syntax:
 **All variables must be in lowercase**
 
 ¬ = "~", "!", "not"

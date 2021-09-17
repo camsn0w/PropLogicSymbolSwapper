@@ -58,6 +58,10 @@ func swap(data *[]rune) error {
 			}
 		case 'o':
 			(*data)[i] = '∨'
+			err = popnext(data, i)
+			if err != nil {
+				return err
+			}
 		case 'a':
 			(*data)[i] = '∧'
 			err = popnext(data, i)

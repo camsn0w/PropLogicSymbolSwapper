@@ -1,7 +1,11 @@
 # Prop Logic Symbol Swapper
 Swaps ASCII characters for the proper utf8 logic symbols
+### For Example:
+((A or C) => (B and !E))
+### Becomes:
+((A ∨ C) ⇒ (B ∧ ¬E))
 
-## Accepted syntax:
+## Accepted Syntax:
 **All variables must be in lowercase**
 
 ¬ = "~", "!", "not"
@@ -10,7 +14,7 @@ Swaps ASCII characters for the proper utf8 logic symbols
 
 ∧ = "&", "^", "and"
 
-### To install:
+### To Install:
 clone the repository and run "go build"
 
 ### Running:

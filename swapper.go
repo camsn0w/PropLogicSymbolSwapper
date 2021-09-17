@@ -1,7 +1,7 @@
 package main
 
 import (
-	"errors"
+	"fmt"
 	"os"
 )
 
@@ -17,11 +17,13 @@ func main() {
 		print(err.Error())
 		os.Exit(1)
 	}
+
 	err = swap(&data)
 	if err != nil {
 		print(err.Error())
 		os.Exit(1)
 	}
+
 	err = WriteFile(filename, data)
 	if err != nil {
 		print(err.Error())
@@ -40,26 +42,18 @@ func swap(data *[]rune) error {
 			(*data)[i] = '∧'
 		case '=':
 			(*data)[i] = '⇒'
-			err = popnext(data, i)
+			err = remove(data, i+1, 1)
 		case '~', '!':
 			(*data)[i] = '¬'
 		case 'n':
 			(*data)[i] = '¬'
-			err = popnext(data, i)
-			if err != nil {
-				return err
-			}
-			err = popnext(data, i)
+			err = remove(data, i+1, 2)
 		case 'o':
 			(*data)[i] = '∨'
-			err = popnext(data, i)
+			err = remove(data, i+1, 1)
 		case 'a':
 			(*data)[i] = '∧'
-			err = popnext(data, i)
-			if err != nil {
-				return err
-			}
-			err = popnext(data, i)
+			err = remove(data, i+1, 2)
 		default:
 			continue
 		}
@@ -70,11 +64,11 @@ func swap(data *[]rune) error {
 	return nil
 }
 
-func popnext(data *[]rune, index int) error {
-	if index == len(*data)-1 {
-		return errors.New("Invalid formatting at index " + string(rune(index)))
+func remove(data *[]rune, off int, n int) error {
+	if off+n >= len(*data) {
+		return fmt.Errorf("invalid formatting at index: %v", off)
 	}
 
-	*data = append((*data)[:index+1], (*data)[index+2:]...)
+	*data = append((*data)[:off], (*data)[off+n:]...)
 	return nil
 }

@@ -2,7 +2,7 @@
 Swaps ASCII characters for the proper utf8 logic symbols
 ### For Example:
 ((A or C) => (B and !E))
-### Becomes:
+#### Becomes:
 ((A ∨ C) ⇒ (B ∧ ¬E))
 
 ## Accepted Syntax:

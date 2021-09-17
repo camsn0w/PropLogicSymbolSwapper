@@ -1,5 +1,5 @@
 # Prop Logic Symbol Swapper
-Swaps ASCII propositional logic symbols for the utf8 symbols
+Swaps ASCII characters for the proper utf8 logic symbols
 
 ## Accepted syntax:
 **All variables must be in lowercase**
